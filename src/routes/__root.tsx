@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "AgentOS — AI Desktop Automation" },
+      { name: "description", content: "AgentOS lets Large Language Models see your screen, reason about it, and control your desktop, one precise action at a time." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "AgentOS — AI Desktop Automation" },
+      { property: "og:description", content: "AgentOS lets Large Language Models see your screen, reason about it, and control your desktop, one precise action at a time." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "AgentOS — AI Desktop Automation" },
+      { name: "twitter:description", content: "AgentOS lets Large Language Models see your screen, reason about it, and control your desktop, one precise action at a time." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/11620157-f581-4b66-971f-8f3449113c63" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/11620157-f581-4b66-971f-8f3449113c63" },
     ],
     links: [
       {
