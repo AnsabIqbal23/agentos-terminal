@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Window } from "./Window";
 
-const GITHUB_URL = "https://github.com/agentos";
+const GITHUB_URL = "https://github.com/abdullah-kapadia/AgentOS";
 const CLONE_CMD = `git clone ${GITHUB_URL}`;
 
 export function QuickStart() {
