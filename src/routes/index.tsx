@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { Eye, RefreshCw, ShieldCheck, Zap, Plug, Mic } from "lucide-react";
 import { StatusBar } from "@/components/StatusBar";
 import { Window } from "@/components/Window";
 import { BootTerminal } from "@/components/BootTerminal";
