@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { Eye, RefreshCw, ShieldCheck, Zap, Plug, Mic } from "lucide-react";
 import { StatusBar } from "@/components/StatusBar";
 import { Window } from "@/components/Window";
 import { BootTerminal } from "@/components/BootTerminal";
@@ -38,41 +39,41 @@ const STATS = [
 
 const FEATURES = [
   {
-    icon: "👁",
+    Icon: Eye,
     name: "Multi-Modal Perception",
     desc: "5 sensing modalities: screenshots, Tesseract OCR, AT-SPI accessibility tree (91 tools), NCC template matching, cursor tracking.",
   },
   {
-    icon: "🔄",
+    Icon: RefreshCw,
     name: "Iterative Planning Loop",
     desc: "Plans one action per iteration. Re-observes screen. Re-plans. Resilient to any UI change by design.",
   },
   {
-    icon: "🛡",
+    Icon: ShieldCheck,
     name: "Three-Tier Safety System",
     desc: "Every action classified: SAFE (auto-run), CAUTION (policy check), DESTRUCTIVE (user confirmation required). Full audit trail.",
   },
   {
-    icon: "⚡",
+    Icon: Zap,
     name: "Real-Time Streaming API",
     desc: "Actions, thoughts, and decisions stream live via NDJSON on port 3000. Full cancellation support.",
   },
   {
-    icon: "🔌",
+    Icon: Plug,
     name: "100+ MCP Tools",
     desc: "Model Context Protocol server on port 8765 with 100+ tools across 8 namespaces. Any LLM can connect.",
   },
   {
-    icon: "🎙",
+    Icon: Mic,
     name: "Voice Commands",
     desc: "Whisper-powered speech-to-text built into the Electron desktop app. Speak your goal, watch it happen.",
   },
 ];
 
 const TEAM = [
-  { initials: "AK", username: "abdullah.kapadia", name: "Abdullah Kapadia", role: "Backend Core" },
-  { initials: "AY", username: "ali.yahya", name: "Ali Yahya", role: "System Architecture" },
-  { initials: "SI", username: "syed.ansab", name: "Syed Ansab Iqbal", role: "Frontend & Integration" },
+  { initials: "AK", username: "abdullah.kapadia", name: "Abdullah Kapadia" },
+  { initials: "AY", username: "ali.yahya", name: "Ali Yahya" },
+  { initials: "SI", username: "syed.ansab", name: "Syed Ansab Iqbal" },
 ];
 
 function useReveal<T extends HTMLElement>() {
@@ -226,8 +227,8 @@ Please drop demo.mp4 into the project root.`}
                     className="group flex items-center gap-4 px-5 py-5 border-b border-border last:border-b-0 transition-colors hover:bg-surface-elevated animate-slide-in-left"
                     style={{ background: i % 2 === 0 ? "#1a1a1a" : "#1f1f1f" }}
                   >
-                    <div className="text-3xl text-primary w-12 text-center shrink-0 glow-orange">
-                      {f.icon}
+                    <div className="w-12 flex justify-center shrink-0 text-primary glow-orange">
+                      <f.Icon className="w-7 h-7" strokeWidth={1.75} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="font-bold text-foreground mb-1">{f.name}</div>
@@ -284,10 +285,7 @@ Please drop demo.mp4 into the project root.`}
                     {u.initials}
                   </div>
                   <div className="font-mono text-xs text-accent mb-1">{u.username}</div>
-                  <div className="font-bold text-foreground mb-3">{u.name}</div>
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground px-2 py-1 border border-border">
-                    {u.role}
-                  </div>
+                  <div className="font-bold text-foreground">{u.name}</div>
                 </div>
               ))}
             </div>
