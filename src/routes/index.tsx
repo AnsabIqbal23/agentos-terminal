@@ -6,8 +6,9 @@ import { Window } from "@/components/Window";
 import { BootTerminal } from "@/components/BootTerminal";
 import { PlanningLoop } from "@/components/PlanningLoop";
 import { QuickStart } from "@/components/QuickStart";
+import { TechStack } from "@/components/TechStack";
 
-const GITHUB_URL = "https://github.com/agentos";
+const GITHUB_URL = "https://github.com/abdullah-kapadia/AgentOS";
 
 export const Route = createFileRoute("/")({
   component: Index,
