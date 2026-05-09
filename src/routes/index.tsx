@@ -227,8 +227,8 @@ Please drop demo.mp4 into the project root.`}
                     className="group flex items-center gap-4 px-5 py-5 border-b border-border last:border-b-0 transition-colors hover:bg-surface-elevated animate-slide-in-left"
                     style={{ background: i % 2 === 0 ? "#1a1a1a" : "#1f1f1f" }}
                   >
-                    <div className="text-3xl text-primary w-12 text-center shrink-0 glow-orange">
-                      {f.icon}
+                    <div className="w-12 flex justify-center shrink-0 text-primary glow-orange">
+                      <f.Icon className="w-7 h-7" strokeWidth={1.75} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="font-bold text-foreground mb-1">{f.name}</div>
@@ -285,10 +285,7 @@ Please drop demo.mp4 into the project root.`}
                     {u.initials}
                   </div>
                   <div className="font-mono text-xs text-accent mb-1">{u.username}</div>
-                  <div className="font-bold text-foreground mb-3">{u.name}</div>
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground px-2 py-1 border border-border">
-                    {u.role}
-                  </div>
+                  <div className="font-bold text-foreground">{u.name}</div>
                 </div>
               ))}
             </div>
