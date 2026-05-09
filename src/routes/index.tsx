@@ -39,41 +39,41 @@ const STATS = [
 
 const FEATURES = [
   {
-    icon: "👁",
+    Icon: Eye,
     name: "Multi-Modal Perception",
     desc: "5 sensing modalities: screenshots, Tesseract OCR, AT-SPI accessibility tree (91 tools), NCC template matching, cursor tracking.",
   },
   {
-    icon: "🔄",
+    Icon: RefreshCw,
     name: "Iterative Planning Loop",
     desc: "Plans one action per iteration. Re-observes screen. Re-plans. Resilient to any UI change by design.",
   },
   {
-    icon: "🛡",
+    Icon: ShieldCheck,
     name: "Three-Tier Safety System",
     desc: "Every action classified: SAFE (auto-run), CAUTION (policy check), DESTRUCTIVE (user confirmation required). Full audit trail.",
   },
   {
-    icon: "⚡",
+    Icon: Zap,
     name: "Real-Time Streaming API",
     desc: "Actions, thoughts, and decisions stream live via NDJSON on port 3000. Full cancellation support.",
   },
   {
-    icon: "🔌",
+    Icon: Plug,
     name: "100+ MCP Tools",
     desc: "Model Context Protocol server on port 8765 with 100+ tools across 8 namespaces. Any LLM can connect.",
   },
   {
-    icon: "🎙",
+    Icon: Mic,
     name: "Voice Commands",
     desc: "Whisper-powered speech-to-text built into the Electron desktop app. Speak your goal, watch it happen.",
   },
 ];
 
 const TEAM = [
-  { initials: "AK", username: "abdullah.kapadia", name: "Abdullah Kapadia", role: "Backend Core" },
-  { initials: "AY", username: "ali.yahya", name: "Ali Yahya", role: "System Architecture" },
-  { initials: "SI", username: "syed.ansab", name: "Syed Ansab Iqbal", role: "Frontend & Integration" },
+  { initials: "AK", username: "abdullah.kapadia", name: "Abdullah Kapadia" },
+  { initials: "AY", username: "ali.yahya", name: "Ali Yahya" },
+  { initials: "SI", username: "syed.ansab", name: "Syed Ansab Iqbal" },
 ];
 
 function useReveal<T extends HTMLElement>() {
