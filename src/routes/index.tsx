@@ -270,6 +270,16 @@ Please drop demo.mp4 into the project root.`}
         </Reveal>
       </section>
 
+      {/* TECH STACK */}
+      <section className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
+        <Reveal>
+          <div className="font-mono text-sm text-muted-foreground mb-6">
+            <span className="text-success">#</span> // System dependencies
+          </div>
+          <TechStack />
+        </Reveal>
+      </section>
+
       {/* TEAM */}
       <section className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
         <Reveal>
