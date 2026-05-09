@@ -6,8 +6,9 @@ import { Window } from "@/components/Window";
 import { BootTerminal } from "@/components/BootTerminal";
 import { PlanningLoop } from "@/components/PlanningLoop";
 import { QuickStart } from "@/components/QuickStart";
+import { TechStack } from "@/components/TechStack";
 
-const GITHUB_URL = "https://github.com/agentos";
+const GITHUB_URL = "https://github.com/abdullah-kapadia/AgentOS";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -73,7 +74,7 @@ const FEATURES = [
 const TEAM = [
   { initials: "AK", username: "abdullah.kapadia", name: "Abdullah Kapadia" },
   { initials: "AY", username: "ali.yahya", name: "Ali Yahya" },
-  { initials: "SI", username: "syed.ansab", name: "Syed Ansab Iqbal" },
+  { initials: "AI", username: "ansab.iqbal", name: "Syed Ansab Iqbal" },
 ];
 
 function useReveal<T extends HTMLElement>() {
@@ -266,6 +267,16 @@ Please drop demo.mp4 into the project root.`}
               → Full Setup Guide on GitHub
             </a>
           </div>
+        </Reveal>
+      </section>
+
+      {/* TECH STACK */}
+      <section className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
+        <Reveal>
+          <div className="font-mono text-sm text-muted-foreground mb-6">
+            <span className="text-success">#</span> // System dependencies
+          </div>
+          <TechStack />
         </Reveal>
       </section>
 
