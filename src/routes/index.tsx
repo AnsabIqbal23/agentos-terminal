@@ -74,7 +74,7 @@ const FEATURES = [
 const TEAM = [
   { initials: "AK", username: "abdullah.kapadia", name: "Abdullah Kapadia" },
   { initials: "AY", username: "ali.yahya", name: "Ali Yahya" },
-  { initials: "SI", username: "syed.ansab", name: "Syed Ansab Iqbal" },
+  { initials: "AI", username: "ansab.iqbal", name: "Syed Ansab Iqbal" },
 ];
 
 function useReveal<T extends HTMLElement>() {
