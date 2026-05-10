@@ -1,8 +1,11 @@
 import { Window } from "./Window";
 
-type Tool = { name: string; logo: string; invert?: boolean };
+type Tool = {
+  name: string;
+  logo?: string;
+  fallback?: "tesseract" | "whisper";
+};
 
-// Logos from simpleicons CDN (white variants for dark bg)
 const SI = (slug: string) => `https://cdn.simpleicons.org/${slug}/ffffff`;
 const SIC = (slug: string, color: string) => `https://cdn.simpleicons.org/${slug}/${color}`;
 
@@ -13,9 +16,17 @@ const TOOLS: Tool[] = [
   { name: "Claude API", logo: SIC("anthropic", "E95420") },
   { name: "PostgreSQL", logo: SIC("postgresql", "4169E1") },
   { name: "Docker", logo: SIC("docker", "2496ED") },
-  { name: "Tesseract", logo: SI("tesseract") },
+  {
+    name: "Tesseract",
+    logo: "https://raw.githubusercontent.com/tesseract-ocr/tesseract/main/doc/images/tesseract.png",
+    fallback: "tesseract",
+  },
   { name: "Vitest", logo: SIC("vitest", "6E9F18") },
-  { name: "Whisper", logo: SIC("openai", "ffffff") },
+  {
+    name: "Whisper",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1024px-OpenAI_Logo.svg.png",
+    fallback: "whisper",
+  },
   { name: "X11 / xdotool", logo: SIC("x", "ffffff") },
   { name: "AT-SPI", logo: SIC("gnome", "4A86CF") },
   { name: "Zod", logo: SIC("zod", "3E67B1") },
