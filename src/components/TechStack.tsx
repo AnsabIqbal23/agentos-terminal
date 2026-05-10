@@ -73,7 +73,7 @@ function FallbackVisual({ kind }: { kind: "tesseract" | "whisper" }) {
 }
 
 function Card({ tool }: { tool: Tool }) {
-  const [failed, setFailed] = (require("react") as typeof import("react")).useState<boolean>(false) as unknown as [boolean, (v: boolean) => void];
+  const [failed, setFailed] = useState(false);
   return (
     <div
       className="group shrink-0 mx-2 flex flex-col items-center justify-center gap-2 w-[100px] h-[100px] bg-[#1A1A1A] border border-[#333] hover:border-primary transition-all duration-200"
