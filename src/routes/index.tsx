@@ -7,6 +7,7 @@ import { BootTerminal } from "@/components/BootTerminal";
 import { PlanningLoop } from "@/components/PlanningLoop";
 import { QuickStart } from "@/components/QuickStart";
 import { TechStack } from "@/components/TechStack";
+import { SectionHeading, Wordmark } from "@/components/SectionHeading";
 
 const GITHUB_URL = "https://github.com/abdullah-kapadia/AgentOS";
 
@@ -125,7 +126,22 @@ function Index() {
           </div>
 
           <div className="lg:col-span-2 space-y-6 animate-fade-up" style={{ animationDelay: "200ms" }}>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+            <div className="space-y-3">
+              <div
+                className="leading-none"
+                style={{
+                  fontFamily: '"Ubuntu", system-ui, sans-serif',
+                  fontWeight: 700,
+                  letterSpacing: "2px",
+                  fontSize: "clamp(48px, 8vw, 72px)",
+                }}
+              >
+                <span style={{ color: "#F0F0F0" }}>Agent</span>
+                <span style={{ color: "#E95420", textShadow: "0 0 20px rgba(233, 84, 32, 0.6)" }}>OS</span>
+              </div>
+              <div style={{ width: 300, maxWidth: "100%", height: 1, background: "#333" }} />
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
               Your Desktop.
               <br />
               <span className="glow-orange text-primary">Controlled by AI.</span>
@@ -170,9 +186,7 @@ function Index() {
       {/* DEMO */}
       <section id="demo" className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
         <Reveal>
-          <div className="font-mono text-sm text-muted-foreground mb-6">
-            <span className="text-success">#</span> // See AgentOS in action
-          </div>
+          <SectionHeading command="./demo.sh" />
           <Window title="agent@agentos:~$ ./run_demo.sh" glow>
             <video
               src="./demo.mp4"
@@ -198,6 +212,7 @@ Please drop demo.mp4 into the project root.`}
       {/* HOW IT WORKS */}
       <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
         <Reveal>
+          <SectionHeading command="./how-it-works.sh" />
           <Window title="System Monitor — Planning Loop">
             <div className="p-6 bg-[#0f0f0f]">
               <PlanningLoop />
@@ -220,6 +235,7 @@ Please drop demo.mp4 into the project root.`}
       {/* FEATURES */}
       <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
         <Reveal>
+          <SectionHeading command="./features.sh" />
           <Window title="agentos — Features">
             <div>
               {FEATURES.map((f, i) => (
@@ -252,9 +268,7 @@ Please drop demo.mp4 into the project root.`}
       {/* QUICK START */}
       <section className="py-20 px-4 md:px-8 max-w-5xl mx-auto">
         <Reveal>
-          <div className="font-mono text-sm text-muted-foreground mb-6">
-            agent@agentos:~$ <span className="text-foreground">cat QUICKSTART.md</span>
-          </div>
+          <SectionHeading command="./quickstart.sh" />
           <QuickStart />
           <div className="mt-6 flex justify-center">
             <a
@@ -273,9 +287,7 @@ Please drop demo.mp4 into the project root.`}
       {/* TECH STACK */}
       <section className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
         <Reveal>
-          <div className="font-mono text-sm text-muted-foreground mb-6">
-            <span className="text-success">#</span> // System dependencies
-          </div>
+          <SectionHeading command="./stack.sh" />
           <TechStack />
         </Reveal>
       </section>
@@ -283,8 +295,16 @@ Please drop demo.mp4 into the project root.`}
       {/* TEAM */}
       <section className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
         <Reveal>
-          <Window title="System Users — AgentOS">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 bg-[#0f0f0f]">
+          <SectionHeading command="./team.sh" />
+          <Window title="AgentOS — Core Developers">
+            <div className="p-6 bg-[#0f0f0f] space-y-4">
+              <div
+                className="font-mono text-xs text-muted-foreground"
+                style={{ fontFamily: '"Ubuntu Mono", ui-monospace, monospace' }}
+              >
+                The developers behind AgentOS
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {TEAM.map((u) => (
                 <div
                   key={u.username}
@@ -299,6 +319,7 @@ Please drop demo.mp4 into the project root.`}
                   <div className="font-bold text-foreground">{u.name}</div>
                 </div>
               ))}
+              </div>
             </div>
           </Window>
         </Reveal>
@@ -308,9 +329,9 @@ Please drop demo.mp4 into the project root.`}
       <footer className="bg-[#111] border-t border-border h-12 flex items-center px-4 md:px-8 font-mono text-xs text-muted-foreground">
         <div className="flex-1 flex items-center gap-2">
           <span className="text-primary">⬡</span>
-          AgentOS v1.0.0
+          <Wordmark size={13} /> <span>v1.0.0</span>
         </div>
-        <div className="flex-1 text-center">© 2026 AgentOS Team</div>
+        <div className="flex-1 text-center">© 2026 <Wordmark size={12} /> Team</div>
         <div className="flex-1 text-right">
           <a
             href={GITHUB_URL}

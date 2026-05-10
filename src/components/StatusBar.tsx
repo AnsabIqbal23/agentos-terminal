@@ -17,7 +17,10 @@ export function StatusBar() {
     <div className="fixed top-0 left-0 right-0 z-50 h-7 bg-[#111] border-b border-border flex items-center px-3 font-mono text-[12px] text-muted-foreground select-none">
       <div className="flex-1 flex items-center gap-2">
         <span className="text-primary">⬡</span>
-        <span className="text-foreground">AgentOS</span>
+        <span style={{ fontFamily: '"Ubuntu", system-ui, sans-serif', fontWeight: 700 }}>
+          <span style={{ color: "#F0F0F0" }}>Agent</span>
+          <span style={{ color: "#E95420", textShadow: "0 0 8px rgba(233,84,32,0.55)" }}>OS</span>
+        </span>
       </div>
       <div className="flex-1 flex items-center justify-center gap-2">
         <span>agent@desktop:~$</span>

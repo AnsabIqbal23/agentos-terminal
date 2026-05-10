@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { Window } from "./Window";
 
-type Tool = { name: string; logo: string; invert?: boolean };
+type Tool = {
+  name: string;
+  logo?: string;
+  fallback?: "tesseract" | "whisper";
+};
 
-// Logos from simpleicons CDN (white variants for dark bg)
 const SI = (slug: string) => `https://cdn.simpleicons.org/${slug}/ffffff`;
 const SIC = (slug: string, color: string) => `https://cdn.simpleicons.org/${slug}/${color}`;
 
@@ -13,9 +17,17 @@ const TOOLS: Tool[] = [
   { name: "Claude API", logo: SIC("anthropic", "E95420") },
   { name: "PostgreSQL", logo: SIC("postgresql", "4169E1") },
   { name: "Docker", logo: SIC("docker", "2496ED") },
-  { name: "Tesseract", logo: SI("tesseract") },
+  {
+    name: "Tesseract",
+    logo: "https://raw.githubusercontent.com/tesseract-ocr/tesseract/main/doc/images/tesseract.png",
+    fallback: "tesseract",
+  },
   { name: "Vitest", logo: SIC("vitest", "6E9F18") },
-  { name: "Whisper", logo: SIC("openai", "ffffff") },
+  {
+    name: "Whisper",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1024px-OpenAI_Logo.svg.png",
+    fallback: "whisper",
+  },
   { name: "X11 / xdotool", logo: SIC("x", "ffffff") },
   { name: "AT-SPI", logo: SIC("gnome", "4A86CF") },
   { name: "Zod", logo: SIC("zod", "3E67B1") },
@@ -25,7 +37,43 @@ const TOOLS: Tool[] = [
 
 const TOTAL = TOOLS.length;
 
+function FallbackVisual({ kind }: { kind: "tesseract" | "whisper" }) {
+  if (kind === "tesseract") {
+    return (
+      <div
+        className="flex items-center justify-center"
+        style={{
+          width: 40,
+          height: 40,
+          background: "#0D3349",
+          borderRadius: 2,
+        }}
+      >
+        <span
+          style={{
+            fontFamily: '"Ubuntu Mono", ui-monospace, monospace',
+            color: "#fff",
+            fontWeight: 700,
+            fontSize: 13,
+          }}
+        >
+          OCR
+        </span>
+      </div>
+    );
+  }
+  return (
+    <svg width={40} height={40} viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+      <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+      <line x1="12" y1="19" x2="12" y2="23" />
+      <line x1="8" y1="23" x2="16" y2="23" />
+    </svg>
+  );
+}
+
 function Card({ tool }: { tool: Tool }) {
+  const [failed, setFailed] = useState(false);
   return (
     <div
       className="group shrink-0 mx-2 flex flex-col items-center justify-center gap-2 w-[100px] h-[100px] bg-[#1A1A1A] border border-[#333] hover:border-primary transition-all duration-200"
@@ -37,18 +85,22 @@ function Card({ tool }: { tool: Tool }) {
         e.currentTarget.style.boxShadow = "none";
       }}
     >
-      <img
-        src={tool.logo}
-        alt={tool.name}
-        width={40}
-        height={40}
-        loading="lazy"
-        className="object-contain"
-        style={{ width: 40, height: 40 }}
-        onError={(e) => {
-          (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
-        }}
-      />
+      {failed && tool.fallback ? (
+        <FallbackVisual kind={tool.fallback} />
+      ) : (
+        <img
+          src={tool.logo}
+          alt={tool.name}
+          width={40}
+          height={40}
+          loading="lazy"
+          className="object-contain"
+          style={{ width: 40, height: 40 }}
+          onError={() => {
+            if (tool.fallback) setFailed(true);
+          }}
+        />
+      )}
       <span
         className="text-[11px] text-muted-foreground text-center px-1 truncate w-full"
         style={{ fontFamily: '"Ubuntu Mono", ui-monospace, monospace' }}
