@@ -126,7 +126,22 @@ function Index() {
           </div>
 
           <div className="lg:col-span-2 space-y-6 animate-fade-up" style={{ animationDelay: "200ms" }}>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+            <div className="space-y-3">
+              <div
+                className="leading-none"
+                style={{
+                  fontFamily: '"Ubuntu", system-ui, sans-serif',
+                  fontWeight: 700,
+                  letterSpacing: "2px",
+                  fontSize: "clamp(48px, 8vw, 72px)",
+                }}
+              >
+                <span style={{ color: "#F0F0F0" }}>Agent</span>
+                <span style={{ color: "#E95420", textShadow: "0 0 20px rgba(233, 84, 32, 0.6)" }}>OS</span>
+              </div>
+              <div style={{ width: 300, maxWidth: "100%", height: 1, background: "#333" }} />
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
               Your Desktop.
               <br />
               <span className="glow-orange text-primary">Controlled by AI.</span>
