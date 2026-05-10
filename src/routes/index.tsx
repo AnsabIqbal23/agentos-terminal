@@ -7,6 +7,7 @@ import { BootTerminal } from "@/components/BootTerminal";
 import { PlanningLoop } from "@/components/PlanningLoop";
 import { QuickStart } from "@/components/QuickStart";
 import { TechStack } from "@/components/TechStack";
+import { SectionHeading, Wordmark } from "@/components/SectionHeading";
 
 const GITHUB_URL = "https://github.com/abdullah-kapadia/AgentOS";
 
