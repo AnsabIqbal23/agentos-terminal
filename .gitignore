@@ -14,9 +14,10 @@ dist-ssr
 .vinxi
 .tanstack/**
 .nitro
+.vercel/
 *.local
 
-# Wrangler / Cloudflare
+# Optional local tooling caches
 .wrangler/
 .dev.vars
 
