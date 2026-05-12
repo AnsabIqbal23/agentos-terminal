@@ -1,11 +1,17 @@
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
-import { nitro } from "nitro/vite";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import vitsTsConfigPaths from "vite-tsconfig-paths";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 export default defineConfig({
-  tanstackStart: {
-    server: { entry: "server" },
-  },
-  vite: {
-    plugins: [nitro({ preset: "vercel" })],
+  plugins: [
+    tailwindcss(),
+    vitsTsConfigPaths(),
+    TanStackRouterVite({ autoCodeSplitting: true }),
+    react(),
+  ],
+  build: {
+    outDir: "dist",
   },
 });
