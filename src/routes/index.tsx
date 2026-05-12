@@ -189,7 +189,7 @@ function Index() {
           <SectionHeading command="./demo.sh" />
           <Window title="agent@agentos:~$ ./run_demo.sh" glow>
             <video
-              src="./demo.mp4"
+              src="/demo.mp4"
               controls
               className="w-full block bg-black"
               onError={(e) => {
